@@ -1,368 +1,203 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aditya Shetty - Portfolio</title>
+  <title>Aditya Shetty</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     body {
-      font-family: 'Times New Roman', serif;
-      line-height: 1.6;
-      color: #333;
-      background: #fafafa;
+      font-family: Bodoni;
+      margin: 0;
+      padding: 0;
+      background: white;
+      color: black;
     }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
     header {
-      background: linear-gradient(135deg, #2d5016, #4a7c59);
+      background: green;
       color: white;
-      padding: 80px 0;
+      padding: 1rem;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-      background-size: 50px 50px;
-      animation: float 20s linear infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translate(-50px, -50px) rotate(0deg); }
-      100% { transform: translate(-50px, -50px) rotate(360deg); }
-    }
-
-    header h1 {
-      font-size: 3.5rem;
-      font-weight: 300;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-      position: relative;
-      z-index: 2;
-    }
-
-    header p {
-      font-size: 1.3rem;
-      opacity: 0.9;
-      position: relative;
-      z-index: 2;
     }
 
     nav {
-      background: rgba(0,0,0,0.9);
-      padding: 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    nav .container {
-      display: flex;
-      justify-content: center;
+      background: lightgray;
+      padding: 0.5rem;
+      text-align: center;
     }
 
     nav a {
-      color: white;
+      margin: 0 1rem;
+      color: black;
       text-decoration: none;
-      padding: 18px 30px;
-      transition: all 0.3s ease;
-      font-weight: 500;
-      position: relative;
-    }
-
-    nav a:hover {
-      background: #2d5016;
-      transform: translateY(-2px);
     }
 
     section {
-      padding: 70px 0;
-      border-bottom: 1px solid #e0e0e0;
+      padding: 2rem;
+      border-bottom: 1px solid gray;
     }
-
-    section:nth-child(even) { background: white; }
 
     h2 {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      text-align: center;
-      color: #2d5016;
-      position: relative;
+      margin-bottom: 1rem;
     }
 
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, #2d5016, #4a7c59);
+    .skills, .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      text-align: center;
-      color: #555;
+    .box {
+      border: 1px solid gray;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      background: lightgray;
+      flex: 1 1 200px;
     }
 
-    .skills-grid, .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 15px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-      border-color: #4a7c59;
-    }
-
-    .card h3 {
-      color: #2d5016;
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-    }
-
-    .card h4 {
-      color: #4a7c59;
-      margin-bottom: 10px;
-    }
-
-    .experience-item {
-      background: white;
-      border-radius: 15px;
-      padding: 35px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      border-left: 5px solid #4a7c59;
-    }
-
-    .experience-item h3 {
-      color: #2d5016;
-      margin-bottom: 5px;
-    }
-
-    .experience-item p {
-      color: #666;
-      margin-bottom: 15px;
-      font-style: italic;
-    }
-
-    .experience-item ul {
-      margin-left: 20px;
-    }
-
-    .experience-item li {
-      margin-bottom: 8px;
-      color: #555;
-    }
-
-    .project-link {
-      color: #4a7c59;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .project-link:hover {
-      color: #2d5016;
-    }
-
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .contact-form input, .contact-form textarea {
+    .contact input, .contact textarea {
       width: 100%;
-      padding: 15px;
-      margin-bottom: 20px;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      font-family: 'Times New Roman', serif;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
     }
 
-    .contact-form input:focus, .contact-form textarea:focus {
-      outline: none;
-      border-color: #4a7c59;
-    }
-
-    .contact-form textarea { resize: vertical; min-height: 120px; }
-
-    .btn {
-      background: linear-gradient(135deg, #2d5016, #4a7c59);
+    .contact button {
+      background: green;
       color: white;
       border: none;
-      padding: 15px 40px;
-      border-radius: 50px;
+      padding: 0.5rem 1rem;
       cursor: pointer;
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(45, 80, 22, 0.3);
     }
 
     footer {
-      background: #1a1a1a;
+      background: black;
       color: white;
       text-align: center;
-      padding: 30px 0;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.5rem; }
-      nav a { padding: 15px 20px; }
-      section { padding: 50px 0; }
-      .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="container">
-      <h1>Aditya Shetty</h1>
-      <p>Computer Science Student at Queen's University</p>
-    </div>
+    <h1>Aditya Shetty</h1>
+    <p>Computer Science Student at Queen's University</p>
   </header>
 
   <nav>
-    <div class="container">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <div class="about-content">
-        <p>I am a passionate Software Engineer currently pursuing my studies at Queen's University. My focus lies in expanding my expertise in Deep Learning and Natural Language Processing, constantly exploring innovative solutions to complex problems.</p>
-      </div>
-    </div>
+    <h2>About</h2>
+    <p>Hey Everyone! I am a Software Engineer currently studying at Queen's University. I'm passionate about expanding my skillset in Deep Learning and NL Processing.</p>
   </section>
 
   <section id="skills">
-    <div class="container">
-      <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="card">
-          <h3>Programming Languages</h3>
-          <p>C/C++, Java, Python, JavaScript, R, x86 Assembly, PHP, Shell Scripting</p>
-        </div>
-        <div class="card">
-          <h3>Web Technologies</h3>
-          <p>HTML5, CSS3, JavaScript, PHP, ASP.NET</p>
-        </div>
-        <div class="card">
-          <h3>Tools & Libraries</h3>
-          <p>Git, Unix, Unity, VSCode, NumPy, Pandas</p>
-        </div>
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="box">
+        <strong>Languages</strong>
+        <p>C/C++, CSS, HTML, Java, x86 , JavaScript, Numpy, Pandas, PHP, Python,R, Shell Scripting</p>
+      </div>
+      <div class="box">
+        <strong>Web</strong>
+        <p>HTML, CSS, JavaScript, PHP, ASP.NET</p>
+      </div>
+      <div class="box">
+        <strong>Tools</strong>
+        <p>Git, Unix, Unity, VSCode </p>
       </div>
     </div>
   </section>
 
   <section id="experience">
-    <div class="container">
-      <h2>Professional Experience</h2>
-      <div class="experience-item">
-        <h3>Online Support Specialist</h3>
-        <p>Homelife Miracle | Apr 2023 – Sep 2024</p>
-        <ul>
-          <li>Managed client-to-broker communications, ensuring seamless interactions</li>
-          <li>Coordinated service bookings and appointments for prospective clients</li>
-          <li>Built strong networking relationships with brokers across the GTA</li>
-        </ul>
-      </div>
-      <div class="experience-item">
-        <h3>Bakery Service Member</h3>
-        <p>Fortinos | Sep 2021 – Aug 2022</p>
-        <ul>
-          <li>Enhanced customer satisfaction through quality service inquiries assistance</li>
-          <li>Led group productivity meetings, significantly boosting team efficiency</li>
-          <li>Maintained perfect attendance record throughout employment period</li>
-        </ul>
-      </div>
+    <h2>Experience</h2>
+    <div class="box">
+      <h3>Bakery Service Member</h3>
+      <p>Fortinos, Sep 2021 – Aug 2022</p>
+      <ul>
+          <li>Assisted clients with service inquiries, enhancing customer satisfaction.</li>
+          <li>Organized and led group productivity meetings, boosting team efficiency.</li>
+          <li>Maintained a perfect attendance record throughout employment.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Online Support Specialist</h3>
+      <p>Homelife Miracle, Apr 2023 – Sep 2024</p>
+      <ul>
+          <li>Managed client-to-broker communications, ensuring smooth interactions.</li>
+          <li>Coordinated booking of services and appointments for prospective clients.</li>
+          <li>Built strong networking relationships with brokers across the GTA.</li>
+      </ul>
     </div>
   </section>
 
-  <section id="projects">
-    <div class="container">
-      <h2>Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="card">
-          <h3>Word Guessing Game</h3>
-          <h4>HTML/CSS/JavaScript, DOM Manipulation</h4>
-          <p><a href="https://adityashett.github.io/word-guesser/" class="project-link" target="_blank">View Project →</a></p>
-          <p>Responsive single-page application with dynamic game state management and adaptive difficulty system featuring three skill levels.</p>
-        </div>
-        <div class="card">
-          <h3>Budget Tracker</h3>
-          <h4>HTML/CSS/JavaScript, Chart.js</h4>
-          <p><a href="https://adityashett.github.io/BudgetTracker/" class="project-link" target="_blank">View Project →</a></p>
-          <p>Comprehensive financial management tool with data visualization, real-time budget calculations, and category progress tracking.</p>
-        </div>
-        <div class="card">
-          <h3>Automated Grapher</h3>
-          <h4>Python, Streamlit, BeautifulSoup, Pandas</h4>
-          <p><a href="https://automatedgrapher-jeynjm4n6qqqpuiju8dnum.streamlit.app/" class="project-link" target="_blank">View Project →</a></p>
-          <p>Data visualization tool with automated Wikipedia extraction and intelligent web scraping for real-time chart generation.</p>
-        </div>
-      </div>
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="box">
+      <h3>Project One</h3>
+      <h4><strong>Word Guessing Game</strong></h4>
+      <p><a href="https://adityashett.github.io/word-guesser/" target="_blank">https://adityashett.github.io/word-guesser/</a></p>
+      <p><strong>HTML/CSS/JavaScript, DOM Manipulation</strong></p>
+      <li>Developed responsive single-page application using vanilla JavaScript and CSS</li>
+      <li>Implemented dynamic game state management with real-time UI updates</li>
+      <li>Created adaptive difficulty system with three skill levels and scoring mechanics</li>
     </div>
-  </section>
+    <div class="box">
+      <h3>Project Two</h3>
+      <h4><strong>Budgeting App</strong></h4>
+      <p><a href="https://adityashett.github.io/BudgetTracker/" target="_blank">https://adityashett.github.io/BudgetTracker/</a></p>
+      <p><strong>HTML/CSS/JavaScript, DOM Manipulation</strong></p>
+      <li>Developed comprehensive single-page application using vanilla JavaScript with modular state management</li>
+      <li>Implemented dynamic data visualization using Chart.js for budget allocation pie charts and spending trend analysis</li>
+      <li>Created responsive multi-page interface with expense tracking, income management, and financial health monitoring</li>
+      <li>Built real-time budget calculation system with percentage-based allocation and category progress tracking</li>
+    </div>
+    <div class="box">
+      <h3>Project Three</h3>
+      <h4><strong>Automated Grapher</strong></h4>
+      <p><a href="https://automatedgrapher-jeynjm4n6qqqpuiju8dnum.streamlit.app/" target="_blank">https://automatedgrapher-jeynjm4n6qqqpuiju8dnum.streamlit.app/</a></p>
+      <p><strong>Python, Streamlit, BeautifulSoup, Pandas, Matplotlib</strong></p>
+      <li>Developed comprehensive data visualization tool using Streamlit framework with automated Wikipedia table extraction</li>
+      <li>Implemented dynamic chart generation system supporting multiple visualization types (line, bar, pie charts) with automatic data formatting</li>
+      <li>Created intelligent web scraping pipeline using BeautifulSoup and DuckDuckGo search integration for real-time data retrieval</li>
+      <li>Built robust data processing engine with pandas DataFrame manipulation and matplotlib rendering for publication-ready visualizations</li>
+    </div>
+  </div>
+</section>
 
-  <section id="contact">
-    <div class="container">
-      <h2>Get In Touch</h2>
-      <form class="contact-form" action="https://formspree.io/f/mblkdpvz" method="POST">
-        <input type="email" name="email" placeholder="Your Email Address" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-    </div>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    
+         <form
+          action="https://formspree.io/f/mblkdpvz"
+          method="POST"
+        >
+          <label>
+            Your email:
+            <input type="email" name="email">
+          </label>
+          <label>
+            Your message:
+            <textarea name="message"></textarea>
+          </label>
+          <!-- your other form fields go here -->
+          <button type="submit">Send</button>
+        </form>
+
   </section>
 
   <footer>
-    <div class="container">
-      <p>© 2024 Aditya Shetty. All rights reserved.</p>
-    </div>
+    <p>© 2024 Aditya Shetty</p>
   </footer>
+
 </body>
 </html>
