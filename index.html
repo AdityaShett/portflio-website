@@ -154,12 +154,14 @@
 
   <section id="contact" class="contact">
     <h2>Contact</h2>
-    <form onsubmit="alert('Thanks! I will reply soon.'); return false;">
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Message" rows="4" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+    
+      <form action="https://formspree.io/f/mblkdpvz" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message" rows="4" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+
   </section>
 
   <footer>
