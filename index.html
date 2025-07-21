@@ -5,19 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Shetty</title>
   <style>
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
-      font-family: Bodoni;
+      font-family: 'Times New Roman';
       margin: 0;
       padding: 0;
       background: white;
       color: black;
     }
 
+     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
     header {
       background: green;
       color: white;
       padding: 1rem;
       text-align: center;
+    }
+
+      header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: float 20s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translate(-50px, -50px) rotate(0deg); }
+      100% { transform: translate(-50px, -50px) rotate(360deg); }
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 300;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      position: relative;
+      z-index: 2;
     }
 
     nav {
@@ -30,6 +68,11 @@
       margin: 0 1rem;
       color: black;
       text-decoration: none;
+    }
+
+    nav a:hover {
+      background: green;
+      transform: translateY(-2px);
     }
 
     section {
