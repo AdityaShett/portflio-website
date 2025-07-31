@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,198 +5,352 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Shetty</title>
   <style>
-    body {
-      font-family: "monospace", sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background: white;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Times New Roman", Times, sans-serif;
+      line-height: 1.0;
       color: black;
+      background: gray;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 0 20px gray;
     }
 
     header {
       background: green;
       color: white;
-      padding: 1rem;
+      padding: 2rem;
       text-align: center;
     }
 
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
     nav {
-      background: lightgray;
-      padding: 0.5rem;
+      background: darkgreen;
+      padding: 0;
       text-align: center;
     }
 
     nav a {
-      margin: 0 1rem;
-      color: black;
+      display: inline-block;
+      padding: 1rem 1.5rem;
+      color: white;
       text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: green;
     }
 
     section {
-      padding: 2rem;
-      border-bottom: 1px solid gray;
+      padding: 2.5rem 2rem;
+      border-bottom: 2px solid lightgray;
+    }
+
+    section:last-of-type {
+      border-bottom: none;
     }
 
     h2 {
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: darkgreen;
+      border-bottom: 3px solid gray;
+      padding-bottom: 0.5rem;
+      display: inline-block;
     }
 
     .skills, .projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
     }
 
     .box {
-      border: 1px solid gray;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      background: lightgray;
-      flex: 1 1 200px;
+      background: white;
+      border: 2px solid gray;
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px lightgray;
+    }
+
+    .box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px gray;
+      border-color: darkgreen;
+    }
+
+    .box h3 {
+      color: darkgreen;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .box h4 {
+      color: green;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .box strong {
+      color: darkgreen;
+      font-size: 1.1rem;
+    }
+
+    .box p {
+      margin-bottom: 0.5rem;
+      color: black;
+    }
+
+    .box a {
+      color: darkgreen;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .box a:hover {
+      text-decoration: underline;
+      color: darkgreen;
+    }
+
+    .box ul {
+      margin-left: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .box li {
+      margin-bottom: 0.5rem;
+      color: black;
+    }
+
+    #about {
+      background: lightgreen;
+      text-align: center;
+    }
+
+    #about p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: black;
+    }
+
+    #experience .box {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact {
+      background: green;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact label {
+      display: block;
+      margin-bottom: 1rem;
+      color: darkgreen;
+      font-weight: bold;
     }
 
     .contact input, .contact textarea {
       width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border: 2px solid green;
+      border-radius: 5px;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact input:focus, .contact textarea:focus {
+      outline: none;
+      border-color: darkgreen;
+      background: lightgreen;
+    }
+
+    .contact textarea {
+      min-height: 120px;
+      resize: vertical;
     }
 
     .contact button {
       background: green;
       color: white;
       border: none;
-      padding: 0.5rem 1rem;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
       cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+
+    .contact button:hover {
+      background: darkgreen;
+      transform: translateY(-2px);
     }
 
     footer {
       background: black;
       color: white;
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem 1rem;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 2rem 1rem;
+      }
+
+      nav a {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .skills, .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <h1>Aditya Shetty</h1>
+      <p>Computer Science Student at Queen's University</p>
+    </header>
 
-  <header>
-    <h1>Aditya Shetty</h1>
-    <p>Computer Science Student at Queen's University</p>
-  </header>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <section id="about">
+      <h2>About</h2>
+      <p>Hey Everyone! I am a Software Engineer currently studying at Queen's University. I'm passionate about expanding my skillset in Deep Learning and NL Processing.</p>
+    </section>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>Hey Everyone! I am a Software Engineer currently studying at Queen's University. I'm passionate about expanding my skillset in Deep Learning and NL Processing.</p>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div class="box">
-        <strong>Languages</strong>
-        <p>C/C++, CSS, HTML, Java, x86 , JavaScript, Numpy, Pandas, PHP, Python,R, Shell Scripting</p>
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="box">
+          <strong>Languages</strong>
+          <p>C/C++, CSS, HTML, Java, x86 , JavaScript, Numpy, Pandas, PHP, Python,R, Shell Scripting</p>
+        </div>
+        <div class="box">
+          <strong>Web</strong>
+          <p>HTML, CSS, JavaScript, PHP, ASP.NET</p>
+        </div>
+        <div class="box">
+          <strong>Tools</strong>
+          <p>Git, Unix, Unity, VSCode</p>
+        </div>
       </div>
-      <div class="box">
-        <strong>Web</strong>
-        <p>HTML, CSS, JavaScript, PHP, ASP.NET</p>
-      </div>
-      <div class="box">
-        <strong>Tools</strong>
-        <p>Git, Unix, Unity, VSCode </p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="box">
-      <h3>Bakery Service Member</h3>
-      <p>Fortinos, Sep 2021 – Aug 2022</p>
-      <ul>
-          <li>Assisted clients with service inquiries, enhancing customer satisfaction.</li>
-          <li>Organized and led group productivity meetings, boosting team efficiency.</li>
-          <li>Maintained a perfect attendance record throughout employment.</li>
-      </ul>
-    </div>
-    <div class="box">
-      <h3>Online Support Specialist</h3>
-      <p>Homelife Miracle, Apr 2023 – Sep 2024</p>
-      <ul>
-          <li>Managed client-to-broker communications, ensuring smooth interactions.</li>
-          <li>Coordinated booking of services and appointments for prospective clients.</li>
-          <li>Built strong networking relationships with brokers across the GTA.</li>
-      </ul>
-    </div>
-  </section>
+    <section id="experience">
+      <h2>Experience</h2>
+        <h3>Online Support Specialist</h3>
+        <p>Homelife Miracle, Apr 2023 – Sep 2024</p>
+        <ul>
+            <li>Managed client-to-broker communications, ensuring smooth interactions.</li>
+            <li>Coordinated booking of services and appointments for prospective clients.</li>
+            <li>Built strong networking relationships with brokers across the GTA.</li>
+        </ul>
+      </div>
+    </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="projects">
-    <div class="box">
-      <h3>Project One</h3>
-      <h4><strong>Word Guessing Game</strong></h4>
-      <p><a href="https://adityashett.github.io/word-guesser/" target="_blank">https://adityashett.github.io/word-guesser/</a></p>
-      <p><strong>HTML/CSS/JavaScript, DOM Manipulation</strong></p>
-      <li>Developed responsive single-page application using vanilla JavaScript and CSS</li>
-      <li>Implemented dynamic game state management with real-time UI updates</li>
-      <li>Created adaptive difficulty system with three skill levels and scoring mechanics</li>
-    </div>
-    <div class="box">
-      <h3>Project Two</h3>
-      <h4><strong>Budgeting App</strong></h4>
-      <p><a href="https://adityashett.github.io/BudgetTracker/" target="_blank">https://adityashett.github.io/BudgetTracker/</a></p>
-      <p><strong>HTML/CSS/JavaScript, DOM Manipulation</strong></p>
-      <li>Developed comprehensive single-page application using vanilla JavaScript with modular state management</li>
-      <li>Implemented dynamic data visualization using Chart.js for budget allocation pie charts and spending trend analysis</li>
-      <li>Created responsive multi-page interface with expense tracking, income management, and financial health monitoring</li>
-      <li>Built real-time budget calculation system with percentage-based allocation and category progress tracking</li>
-    </div>
-    <div class="box">
-      <h3>Project Three</h3>
-      <h4><strong>Automated Grapher</strong></h4>
-      <p><a href="https://automatedgrapher-jeynjm4n6qqqpuiju8dnum.streamlit.app/" target="_blank">https://automatedgrapher-jeynjm4n6qqqpuiju8dnum.streamlit.app/</a></p>
-      <p><strong>Python, Streamlit, BeautifulSoup, Pandas, Matplotlib</strong></p>
-      <li>Developed comprehensive data visualization tool using Streamlit framework with automated Wikipedia table extraction</li>
-      <li>Implemented dynamic chart generation system supporting multiple visualization types (line, bar, pie charts) with automatic data formatting</li>
-      <li>Created intelligent web scraping pipeline using BeautifulSoup and DuckDuckGo search integration for real-time data retrieval</li>
-      <li>Built robust data processing engine with pandas DataFrame manipulation and matplotlib rendering for publication-ready visualizations</li>
-    </div>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="box">
+          <h3>Project One</h3>
+          <h4><strong>Word Guessing Game</strong></h4>
+          <p><a href="https://adityashett.github.io/word-guesser/" target="_blank">https://adityashett.github.io/word-guesser/</a></p>
+          <p><strong>HTML/CSS/JavaScript, DOM Manipulation</strong></p>
+          <li>Developed responsive single-page application using vanilla JavaScript and CSS</li>
+          <li>Implemented dynamic game state management with real-time UI updates</li>
+          <li>Created adaptive difficulty system with three skill levels and scoring mechanics</li>
+        </div>
+        <div class="box">
+          <h3>Project Two</h3>
+          <h4><strong>Budgeting App</strong></h4>
+          <p><a href="https://adityashett.github.io/BudgetTraacker/" target="_blank">https://adityashett.github.io/BudgetTracker/</a></p>
+          <p><strong>HTML/CSS/JavaScript, DOM Manipulation</strong></p>
+          <li>Developed comprehensive single-page application using vanilla JavaScript with modular state management</li>
+          <li>Implemented dynamic data visualization using Chart.js for budget allocation pie charts and spending trend analysis</li>
+          <li>Created responsive multi-page interface with expense tracking, income management, and financial health monitoring</li>
+          <li>Built real-time budget calculation system with percentage-based allocation and category progress tracking</li>
+        </div>
+        <div class="box">
+          <h3>Project Three</h3>
+          <h4><strong>Automated Grapher</strong></h4>
+          <p><a href="https://automatedgrapher-jeynjm4n6qqqpuiju8dnum.streamlit.app/" target="_blank">https://automatedgrapher-jeynjm4n6qqqpuiju8dnum.streamlit.app/</a></p>
+          <p><strong>Python, Streamlit, BeautifulSoup, Pandas, Matplotlib</strong></p>
+          <li>Developed comprehensive data visualization tool using Streamlit framework with automated Wikipedia table extraction</li>
+          <li>Implemented dynamic chart generation system supporting multiple visualization types (line, bar, pie charts) with automatic data formatting</li>
+          <li>Created intelligent web scraping pipeline using BeautifulSoup and DuckDuckGo search integration for real-time data retrieval</li>
+          <li>Built robust data processing engine with pandas DataFrame manipulation and matplotlib rendering for publication-ready visualizations</li>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <form action="https://formspree.io/f/mblkdpvz" method="POST">
+        <label>
+          Your email:
+          <input type="email" name="email">
+        </label>
+        <label>
+          Your message:
+          <textarea name="message"></textarea>
+        </label>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2024 Aditya Shetty</p>
+    </footer>
   </div>
-</section>
-
-
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    
-         <form
-          action="https://formspree.io/f/mblkdpvz"
-          method="POST"
-        >
-          <label>
-            Your email:
-            <input type="email" name="email">
-          </label>
-          <label>
-            Your message:
-            <textarea name="message"></textarea>
-          </label>
-          <!-- your other form fields go here -->
-          <button type="submit">Send</button>
-        </form>
-
-  </section>
-
-  <footer>
-    <p>© 2024 Aditya Shetty</p>
-  </footer>
-
 </body>
 </html>
