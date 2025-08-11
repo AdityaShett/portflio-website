@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Shetty</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
     * {
       margin: 0;
       padding: 0;
@@ -12,60 +14,109 @@
     }
 
     body {
-      font-family: 'Roboto', 'Open Sans', 'Montserrat', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       line-height: 1.6;
-      color: black;
-      background: white;
+      color: #1a1a1a;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
     }
 
     .container {
       max-width: 1200px;
-      margin: 0 auto;
-      background: white;
-      box-shadow: 0 0 10px black;
+      margin: 2rem auto;
+      background: #ffffff;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+      border-radius: 20px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
     }
 
     header {
-      background: black;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
       color: white;
-      padding: 2rem;
+      padding: 4rem 2rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3.5rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
     }
 
     header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      font-weight: 400;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
     }
 
     nav {
-      background: white;
-      border-bottom: 2px solid black;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       padding: 0;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav a {
       display: inline-block;
-      padding: 1rem 1.5rem;
-      color: black;
+      padding: 1.2rem 2rem;
+      color: #1a1a1a;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
       border-bottom: 3px solid transparent;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateX(-50%);
+    }
+
+    nav a:hover::before {
+      width: 100%;
     }
 
     nav a:hover {
-      border-bottom-color: green;
-      color: green;
+      color: #667eea;
+      transform: translateY(-2px);
     }
 
     section {
-      padding: 2.5rem 2rem;
-      border-bottom: 1px solid lightgray;
+      padding: 4rem 3rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      position: relative;
     }
 
     section:last-of-type {
@@ -73,93 +124,200 @@
     }
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: black;
-      border-bottom: 2px solid black;
-      padding-bottom: 0.5rem;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #1a1a1a;
+      position: relative;
       display: inline-block;
     }
 
-    .skills, .projects {
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border-radius: 2px;
+    }
+
+    .skills {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
     .box {
-      background: white;
-      border: 1px solid black;
-      padding: 1.5rem;
-      transition: all 0.3s;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.02) 0%, rgba(118, 75, 162, 0.02) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .box:hover::before {
+      opacity: 1;
     }
 
     .box:hover {
-      box-shadow: 0 5px 10px lightgreen;
-      border-color: green;
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: rgba(102, 126, 234, 0.2);
     }
 
     .box h3 {
-      color: black;
+      color: #1a1a1a;
       margin-bottom: 0.5rem;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
+      font-weight: 600;
     }
 
     .box h4 {
-      color: black;
+      color: #667eea;
       margin-bottom: 1rem;
       font-size: 1.1rem;
+      font-weight: 500;
     }
 
     .box strong {
-      color: black;
-      font-size: 1.1rem;
+      color: #1a1a1a;
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.8rem;
     }
 
     .box p {
-      margin-bottom: 0.5rem;
-      color: black;
+      margin-bottom: 0.8rem;
+      color: #4a5568;
+      line-height: 1.6;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .skill-tag {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      color: #2d3748;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      transform: translateY(-1px);
     }
 
     .box a {
-      color: black;
-      text-decoration: underline;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
       word-break: break-all;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
     }
 
     .box a:hover {
-      color: green;
+      color: #764ba2;
+      border-bottom-color: #764ba2;
     }
 
     .box ul {
-      margin-left: 1.2rem;
+      margin-left: 0;
       margin-top: 1rem;
+      list-style: none;
     }
 
     .box li {
-      margin-bottom: 0.5rem;
-      color: black;
+      margin-bottom: 0.8rem;
+      color: #4a5568;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .box li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
     }
 
     #about {
-      background: lightgray;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
       text-align: center;
     }
 
     #about p {
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
-      font-size: 1.1rem;
-      color: black;
+      font-size: 1.2rem;
+      color: #4a5568;
+      line-height: 1.8;
     }
 
-    #experience .box {
-      margin-bottom: 1.5rem;
+    #experience .experience-item {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    #experience .experience-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    #experience .experience-item h3 {
+      color: #1a1a1a;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    #experience .experience-item p {
+      color: #667eea;
+      font-weight: 500;
+      margin-bottom: 1rem;
     }
 
     .contact {
-      background: lightgray;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
     }
 
     .contact form {
@@ -169,78 +327,130 @@
 
     .contact label {
       display: block;
-      margin-bottom: 1rem;
-      color: black;
-      font-weight: bold;
+      margin-bottom: 1.5rem;
+      color: #1a1a1a;
+      font-weight: 500;
+      font-size: 1rem;
     }
 
     .contact input, .contact textarea {
       width: 100%;
-      padding: 0.8rem;
-      border: 1px solid black;
+      padding: 1rem;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
       font-size: 1rem;
+      font-family: inherit;
       margin-top: 0.5rem;
-      background: white;
+      background: #ffffff;
+      transition: all 0.3s ease;
     }
 
     .contact input:focus, .contact textarea:focus {
       outline: none;
-      border-color: green;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      transform: translateY(-2px);
     }
 
     .contact textarea {
-      min-height: 120px;
+      min-height: 140px;
       resize: vertical;
     }
 
     .contact button {
-      background: black;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border: none;
-      padding: 1rem 2rem;
+      border-radius: 12px;
+      padding: 1rem 2.5rem;
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: 600;
+      font-family: inherit;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .contact button:hover::before {
+      left: 100%;
     }
 
     .contact button:hover {
-      background: green;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
     }
 
     footer {
-      background: black;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
       color: white;
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem;
+      font-weight: 400;
     }
 
     @media (max-width: 768px) {
+      .container {
+        margin: 0;
+        border-radius: 0;
+      }
+
       header {
-        padding: 1.5rem 1rem;
+        padding: 3rem 1.5rem;
       }
 
       header h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
 
       section {
-        padding: 2rem 1rem;
+        padding: 3rem 1.5rem;
       }
 
       nav a {
-        padding: 0.8rem 1rem;
+        padding: 1rem 1.2rem;
         font-size: 0.9rem;
       }
 
       .skills, .projects {
         grid-template-columns: 1fr;
       }
+
+      h2 {
+        font-size: 2rem;
+      }
     }
 
     html {
       scroll-behavior: smooth;
+    }
+
+    /* Add subtle animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .box, .experience-item {
+      animation: fadeInUp 0.6s ease forwards;
     }
   </style>
 </head>
@@ -268,16 +478,68 @@
       <h2>Skills</h2>
       <div class="skills">
         <div class="box">
-          <strong>Languages</strong>
-          <p>C/C++, CSS, HTML, Java, x86 , JavaScript, Numpy, Pandas, PHP, Python,R, Shell Scripting</p>
+          <strong>Programming Languages</strong>
+          <div class="skills-list">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">R</span>
+          </div>
         </div>
         <div class="box">
-          <strong>Web</strong>
-          <p>HTML, CSS, JavaScript, PHP</p>
+          <strong>Web Development</strong>
+          <div class="skills-list">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
         </div>
         <div class="box">
-          <strong>Tools</strong>
-          <p>Git, Unix, Unity, VSCode, MYSQL, SQL</p>
+          <strong>Databases & Analytics</strong>
+          <div class="skills-list">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">SQL Server</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">Chart.js</span>
+            <span class="skill-tag">Matplotlib</span>
+          </div>
+        </div>
+        <div class="box">
+          <strong>Frameworks & Libraries</strong>
+          <div class="skills-list">
+            <span class="skill-tag">Streamlit</span>
+            <span class="skill-tag">BeautifulSoup</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">PyTorch</span>
+          </div>
+        </div>
+        <div class="box">
+          <strong>Tools & Platforms</strong>
+          <div class="skills-list">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Unity</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Unix</span>
+            <span class="skill-tag">Windows</span>
+          </div>
+        </div>
+        <div class="box">
+          <strong>Methodologies</strong>
+          <div class="skills-list">
+            <span class="skill-tag">Agile</span>
+            <span class="skill-tag">Data Visualization</span>
+            <span class="skill-tag">Database Design</span>
+            <span class="skill-tag">Software Development</span>
+            <span class="skill-tag">Game Development</span>
+            <span class="skill-tag">Data Analysis</span>
+          </div>
         </div>
       </div>
     </section>
@@ -319,6 +581,7 @@
 
     <section id="experience">
       <h2>Experience</h2>
+      <div class="experience-item">
         <h3>Online Support Specialist</h3>
         <p>Homelife Miracle, Apr 2023 – Sep 2024</p>
         <ul>
